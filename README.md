@@ -10,3 +10,11 @@ Accessory selection and visual updates in real-time
 Multiple background themes (night, beach, morning)
 Structured and responsive UI layout
 Lightweight and fast-loading frontend
+
+## 🌅 Background Themes
+
+Your game includes beautiful pixel environments:
+
+🌙 Night Mode – calm village with glowing lights
+🏖️ Beach Mode – sunny tropical vibe
+🌼 Morning Meadow – soft pastel mountains & flowers
