@@ -19,17 +19,24 @@ Your game includes beautiful pixel environments:
 🏖️ Beach Mode – sunny tropical vibe
 🌼 Morning Meadow – soft pastel mountains & flowers
 
-## Project Structure
+
+
+## 📂 Project Structure
 Hello-kitty/
+
 │── index.html
+
 │── style.css
 │── index.js
 │── assets/
-│   ├── Background/
-│   ├── dress-up-icon/
-│   ├── options-icons/
-│   └── preview/
 
+│   ├── Background/
+
+│   ├── dress-up-icon/
+
+│   ├── options-icons/
+
+│   └── preview/
 
 ## 🖼️ Preview
 🌙 Night Theme
@@ -47,3 +54,47 @@ Hello-kitty/
 🌼 Morning Theme
 
 ![Uploading image.png…]()
+
+## Tech Stack
+HTML
+CSS
+JavaScript
+
+## Getting Started
+
+Clone the repository:
+
+git clone https://github.com/adrija29-07/Hello-kitty.git
+
+Navigate into the project directory:
+
+cd Hello-kitty
+
+Run locally:
+
+Open index.html in any modern web browser
+Live Demo
+
+ ## https://adrija29-07.github.io/Hello-kitty/
+
+## Future Enhancements
+Save and load user-selected outfits
+Add sound effects and background music
+Introduce additional character assets
+Improve mobile responsiveness
+
+
+## Known Issues
+Minor alignment inconsistencies between the character's head and body in certain outfit combinations
+Small positioning adjustments are required to ensure perfect visual alignment across all assets
+
+These issues are cosmetic and do not affect the core functionality of the application. Improvements are planned in future updates.
+
+## 💌 Author
+
+Made with 💖 by Adrija Roy
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
+
