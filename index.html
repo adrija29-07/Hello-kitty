@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Hello Kitty Dress Up Game - Drag and drop cute pixel art outfits onto Hello Kitty!">
+    <title>Hello Kitty Dress Up Game ✨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-theme="morning">
+
+    <!-- ===== Animated Floating Clouds ===== -->
+    <img src="assest/Background/clouds.png" alt="" class="cloud cloud-1" aria-hidden="true">
+    <img src="assest/Background/clouds 2.png" alt="" class="cloud cloud-2" aria-hidden="true">
+    <img src="assest/Background/clouds 3.png" alt="" class="cloud cloud-3" aria-hidden="true">
+    <img src="assest/Background/clouds.png" alt="" class="cloud cloud-4" aria-hidden="true">
+    <img src="assest/Background/clouds 2.png" alt="" class="cloud cloud-5" aria-hidden="true">
+
+    <!-- ===== Main Game Card ===== -->
+    <div class="game-card" id="game-card">
+        <div class="card-inner">
+
+            <!-- Header Banner -->
+            <div class="card-header">
+                <h1 id="header-text">Get ready with me</h1>
+            </div>
+
+            <!-- Character Display Area -->
+            <div class="character-section" id="character-section">
+
+                <!-- Left Arrow — Previous Background -->
+                <button class="bg-arrow bg-arrow-left" id="bg-left" aria-label="Previous background">
+                    <svg width="28" height="35" viewBox="0 0 28 35" fill="none">
+                        <path
+                            d="M2.94 20.16C1.22 18.99 1.22 16.46 2.94 15.3L21.43 2.8C23.38 1.48 26.01 2.88 26.01 5.23V30.22C26.01 32.58 23.38 33.97 21.43 32.66L2.94 20.16Z"
+                            fill="#F9FFDB" stroke="#397C64" stroke-width="2.93" />
+                    </svg>
+                </button>
+
+                <!-- Kitty Display / Drop Zone -->
+                <div class="kitty-display" id="kitty-drop-zone">
+                    <img id="kitty-head" src="assest/options-icons/pin bow.png" alt="Hello Kitty" class="kitty-head"
+                        draggable="false">
+                    <img id="kitty-body" src="assest/options-icons/pink dress.png" alt="Outfit" class="kitty-body"
+                        draggable="false">
+                </div>
+
+                <!-- Right Arrow — Next Background -->
+                <button class="bg-arrow bg-arrow-right" id="bg-right" aria-label="Next background">
+                    <svg width="29" height="35" viewBox="0 0 29 35" fill="none">
+                        <path
+                            d="M25.51 20.16L7.02 32.66C5.07 33.97 2.44 32.58 2.44 30.22V5.23C2.44 2.88 5.07 1.48 7.02 2.8L25.51 15.3C27.23 16.46 27.23 18.99 25.51 20.16Z"
+                            fill="#F9FFDB" stroke="#397C64" stroke-width="2.93" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="category-tabs">
+                <button class="tab-btn active" id="tab-dress" data-category="dress" aria-label="Dresses & Tunics">
+                    <img src="assest/lable options/dress icon.png" alt="Dress" draggable="false">
+                </button>
+                <button class="tab-btn" id="tab-bow" data-category="bow" aria-label="Bows">
+                    <img src="assest/lable options/blue-bow-icon.png" alt="Bow" draggable="false">
+                </button>
+                <button class="tab-btn tab-done" id="reset-btn" aria-label="Reset outfit">
+                    <img src="assest/lable options/check-icon.png" alt="Reset" draggable="false">
+                </button>
+            </div>
+
+            <!-- Selection Panel — Draggable Clothing Items -->
+            <div class="selection-panel">
+
+                <!-- Dress & Tunic Options -->
+                <div id="dress-options" class="options-row active">
+                    <div class="option-card" draggable="true" data-slot="body"
+                        data-src="assest/options-icons/pink dress.png">
+                        <img src="assest/options-icons/pink dress.png" alt="Pink Dress" draggable="false">
+                    </div>
+                    <div class="option-card" draggable="true" data-slot="body"
+                        data-src="assest/options-icons/purple dress.png">
+                        <img src="assest/options-icons/purple dress.png" alt="Purple Dress" draggable="false">
+                    </div>
+                    <div class="option-card" draggable="true" data-slot="body"
+                        data-src="assest/options-icons/red dress.png">
+                        <img src="assest/options-icons/red dress.png" alt="Red Dress" draggable="false">
+                    </div>
+                    <div class="option-card" draggable="true" data-slot="body"
+                        data-src="assest/options-icons/dress pink polka.png">
+                        <img src="assest/options-icons/dress pink polka.png" alt="Pink Polka Dress" draggable="false">
+                    </div>
+                    <div class="option-card" draggable="true" data-slot="body"
+                        data-src="assest/options-icons/dress blue palka.png">
+                        <img src="assest/options-icons/dress blue palka.png" alt="Blue Polka Dress" draggable="false">
+                    </div>
+                    <div class="option-card" draggable="true" data-slot="body"
+                        data-src="assest/options-icons/dress yellow polka.png">
+                        <img src="assest/options-icons/dress yellow polka.png" alt="Yellow Polka Dress"
+                            draggable="false">
+                    </div>
+                    <div class="option-card" draggable="true" data-slot="body"
+                        data-src="assest/options-icons/green tunic.png">
+                        <img src="assest/options-icons/green tunic.png" alt="Green Tunic" draggable="false">
+                    </div>
+                    <div class="option-card" draggable="true" data-slot="body"
+                        data-src="assest/options-icons/pink tunic.png">
+                        <img src="assest/options-icons/pink tunic.png" alt="Pink Tunic" draggable="false">
+                    </div>
+                    <div class="option-card" draggable="true" data-slot="body"
+                        data-src="assest/options-icons/red tunic.png">
+                        <img src="assest/options-icons/red tunic.png" alt="Red Tunic" draggable="false">
+                    </div>
+                </div>
+
+                <!-- Bow Options -->
+                <div id="bow-options" class="options-row">
+                    <div class="option-card" draggable="true" data-slot="bow"
+                        data-src="assest/options-icons/blue bow.png">
+                        <img src="assest/options-icons/blue bow.png" alt="Blue Bow" draggable="false">
+                    </div>
+                    <div class="option-card" draggable="true" data-slot="bow"
+                        data-src="assest/options-icons/green bow.png">
+                        <img src="assest/options-icons/green bow.png" alt="Green Bow" draggable="false">
+                    </div>
+                    <div class="option-card" draggable="true" data-slot="bow"
+                        data-src="assest/options-icons/pin bow.png">
+                        <img src="assest/options-icons/pin bow.png" alt="Pink Bow" draggable="false">
+                    </div>
+                    <div class="option-card" draggable="true" data-slot="bow"
+                        data-src="assest/options-icons/purble bow.png">
+                        <img src="assest/options-icons/purble bow.png" alt="Purple Bow" draggable="false">
+                    </div>
+                    <div class="option-card" draggable="true" data-slot="bow"
+                        data-src="assest/options-icons/red bow.png">
+                        <img src="assest/options-icons/red bow.png" alt="Red Bow" draggable="false">
+                    </div>
+                    <div class="option-card" draggable="true" data-slot="bow"
+                        data-src="assest/options-icons/yelllow bow.png">
+                        <img src="assest/options-icons/yelllow bow.png" alt="Yellow Bow" draggable="false">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

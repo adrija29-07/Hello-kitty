@@ -1,0 +1,580 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --border: #030003;
+    --border-light: rgba(172, 51, 168, 0.3);
+    --card-outer: linear-gradient(135deg, #e495a2 0%, #b96ba9 50%, #d853dc 100%);
+    --card-inner: linear-gradient(90deg, #a3effb -9.7%, #7ce0ce 36.94%, #72cedc 51.15%, #8dd3f0 66.7%, #72c4dd 100%);
+    --selection-bg: linear-gradient(90deg, #6bb1e2 2.73%, #8acada 42.4%, #8acaef 54.49%, #73d7e4 67.71%, #81c3dd 96.03%);
+    --tab-bg: #f99acf;
+    --tab-active: #f0a1f6;
+}
+
+/* ====== BODY ====== */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Pixelify Sans', cursive, sans-serif;
+    overflow: hidden;
+    background-color: #e96cbb;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-color 0.6s ease, background-image 0.6s ease;
+}
+
+/* ====== CLOUDS — FAST FLOATING ====== */
+.cloud {
+    position: fixed;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.85;
+    will-change: transform;
+}
+
+.cloud-1 {
+    top: 4%;
+    left: 3%;
+    width: 140px;
+    animation: drift1 8s ease-in-out infinite;
+}
+
+.cloud-2 {
+    top: 11%;
+    left: 62%;
+    width: 170px;
+    animation: drift2 10s ease-in-out infinite;
+}
+
+.cloud-3 {
+    top: 2%;
+    left: 32%;
+    width: 120px;
+    animation: drift3 7s ease-in-out infinite;
+}
+
+.cloud-4 {
+    top: 17%;
+    left: 80%;
+    width: 110px;
+    animation: drift4 9s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+.cloud-5 {
+    top: 7%;
+    left: 48%;
+    width: 95px;
+    animation: drift5 6s ease-in-out infinite;
+    opacity: 0.5;
+}
+
+@keyframes drift1 {
+
+    0%,
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+
+    50% {
+        transform: translateX(80px) translateY(-12px);
+    }
+}
+
+@keyframes drift2 {
+
+    0%,
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-70px) translateY(-10px);
+    }
+}
+
+@keyframes drift3 {
+
+    0%,
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+
+    50% {
+        transform: translateX(90px) translateY(-14px);
+    }
+}
+
+@keyframes drift4 {
+
+    0%,
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-80px) translateY(-8px);
+    }
+}
+
+@keyframes drift5 {
+
+    0%,
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+
+    33% {
+        transform: translateX(50px) translateY(-7px);
+    }
+
+    66% {
+        transform: translateX(-40px) translateY(9px);
+    }
+}
+
+body[data-theme="night"] .cloud {
+    opacity: 0.2;
+    filter: brightness(0.4);
+}
+
+/* ====== GAME CARD ====== */
+.game-card {
+    position: relative;
+    z-index: 10;
+    width: 430px;
+    border-radius: 1.2rem;
+    border: 3px solid var(--border);
+    background: var(--card-outer);
+    padding: 8px;
+    box-shadow: 0 8px 32px rgba(30, 12, 200, 1), 0 20px 60px rgba(0, 0, 0, 0.1);
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.card-inner {
+    border-radius: 0.9rem;
+    border: 2.5px solid var(--border);
+    background: var(--card-inner);
+    overflow: hidden;
+}
+
+/* ====== HEADER ====== */
+.card-header {
+    padding: 40px 15px;
+    border-bottom: 2.5px solid var(--border);
+    text-align: center;
+    background: var(--card-inner);
+}
+
+.card-header h1 {
+    color: #db0adf;
+    font-size: 1.35rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* ====== CHARACTER SECTION ====== */
+.character-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 6px;
+    min-height: 320px;
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    transition: background-image 0.6s ease;
+}
+
+/* ====== ARROW BUTTONS ====== */
+.bg-arrow {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 5;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.bg-arrow:hover {
+    transform: scale(1.18);
+}
+
+.bg-arrow:active {
+    transform: scale(0.9);
+}
+
+/* ====== KITTY CHARACTER DISPLAY ====== */
+.kitty-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 15px;
+    padding: 10px;
+    width: 160px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.kitty-head {
+    width: 140px;
+    display: block;
+    position: relative;
+    z-index: 0;
+    image-rendering: pixelated;
+}
+
+.kitty-body {
+    width: 140px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    margin-top: -10px;
+    image-rendering: pixelated;
+}
+
+/* Drop hover */
+.kitty-display.drop-hover {
+    background: rgba(249, 255, 219, 0.5);
+    outline: 3px dashed var(--border);
+    outline-offset: -3px;
+}
+
+/* ====== CATEGORY TABS ====== */
+.category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    padding: 0 30px;
+    position: relative;
+    z-index: 6;
+    margin-top: -2px;
+}
+
+.tab-btn {
+    background: var(--tab-bg);
+    border: 2.5px solid var(--border);
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 74px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab-btn img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.tab-btn:hover {
+    transform: translateY(-3px);
+    background: rgba(249, 255, 219, 0.7);
+}
+
+.tab-btn.active {
+    background: var(--tab-active);
+    border-bottom: 2px solid var(--tab-active);
+    margin-bottom: -2px;
+}
+
+.tab-done {
+    border-radius: 8px;
+    border: 2.5px solid var(--border);
+    background: var(--tab-active);
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.tab-done img {
+    width: 24px;
+    height: 24px;
+}
+
+.tab-done:hover {
+    transform: scale(1.12) translateY(-2px);
+}
+
+/* ====== SELECTION PANEL ====== */
+.selection-panel {
+    border-top: 2.5px solid var(--border);
+    background: var(--selection-bg);
+    padding: 16px 14px;
+    min-height: 115px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.options-row {
+    display: none;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.options-row.active {
+    display: flex;
+}
+
+/* ====== OPTION CARDS ====== */
+.option-card {
+    width: 82px;
+    height: 70px;
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    padding: 6px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.option-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.option-card:hover {
+    transform: translateY(-4px) scale(1.06);
+    border-color: var(--border);
+    box-shadow: 0 8px 22px rgba(80, 164, 134, 0.22);
+}
+
+.option-card:active {
+    cursor: grabbing;
+    transform: scale(0.94);
+}
+
+.option-card.dragging {
+    opacity: 0.35;
+    transform: scale(0.88);
+}
+
+.option-card.selected {
+    border-color: var(--border);
+    background: var(--tab-active);
+    box-shadow: 0 0 0 3px rgba(80, 164, 134, 0.15);
+}
+
+.option-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    image-rendering: pixelated;
+}
+
+/* ====== ANIMATIONS ====== */
+.item-pop {
+    animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.sparkle-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.sparkle {
+    position: absolute;
+    border-radius: 50%;
+    animation: sparkleAnim 0.9s ease-out forwards;
+}
+
+@keyframes sparkleAnim {
+    0% {
+        transform: scale(0) rotate(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.8) rotate(180deg);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.star-burst {
+    position: absolute;
+    inset: 0;
+    z-index: 49;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
+    animation: burstFade 0.8s ease-out forwards;
+}
+
+@keyframes burstFade {
+    0% {
+        opacity: 1;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+
+/* ====== DRAG GHOST ====== */
+.drag-ghost {
+    position: fixed;
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 1000;
+    padding: 8px;
+}
+
+.drag-ghost img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ====== SCROLLBAR ====== */
+.selection-panel::-webkit-scrollbar {
+    width: 5px;
+}
+
+.selection-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.selection-panel::-webkit-scrollbar-thumb {
+    background: var(--border-light);
+    border-radius: 4px;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 480px) {
+    .game-card {
+        width: 95vw;
+        padding: 5px;
+    }
+
+    .card-header h1 {
+        font-size: 1.1rem;
+    }
+
+    .character-section {
+        min-height: 250px;
+        padding: 6px 4px;
+    }
+
+    .kitty-head,
+    .kitty-body {
+        width: 110px;
+    }
+
+    .kitty-display {
+        min-width: 130px;
+        padding: 8px 12px 4px;
+    }
+
+    .bg-arrow svg {
+        width: 20px;
+        height: 28px;
+    }
+
+    .tab-btn {
+        width: 58px;
+        height: 34px;
+    }
+
+    .tab-btn img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .tab-done {
+        width: 34px;
+        height: 34px;
+    }
+
+    .option-card {
+        width: 66px;
+        height: 56px;
+        padding: 4px;
+    }
+
+    .selection-panel {
+        padding: 12px 8px;
+    }
+
+    .cloud-4,
+    .cloud-5 {
+        display: none;
+    }
+}
