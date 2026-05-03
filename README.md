@@ -41,17 +41,14 @@ Hello-kitty/
 ## 🖼️ Preview
 🌙 Night Theme
 
-<img width="1919" height="882" alt="image" src="https://github.com/user-attachments/assets/9b8e835e-8ea6-48c8-a291-58afd234039f" />
-
 
 
 🏖️ Beach Theme
 
-<img width="1919" height="873" alt="image" src="https://github.com/user-attachments/assets/508b04c5-9502-4709-a1ba-2a03c15be184" />
-
 
 
 🌼 Morning Theme
+
 
 ![Uploading image.png…]()
 
